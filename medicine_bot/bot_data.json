@@ -1,0 +1,113 @@
+{
+    "paras": {
+        "{para.bot_name}": "BOT NAME",
+        "{para.company_name}": "COMPANY NAME",
+        "{para.bot_phone}": "1800 xxxx",
+        "{para.miss_call_time}": "hôm qua lúc 6h"
+    },
+    "regex_para": "{para\\.[^}]+}",
+    "start_node": 0,
+    "stories": [
+        {
+            "node_id": 0,
+            "description": "Lời mở đầu của bot cho dịch vụ cuộc gọi nhỡ",
+            "type": "bot",
+            "case": {},
+            "message": [
+                "Chào {para.person_name}, em là {para.bot_name} của công ty {para.company_name}. Em thấy {para.person_name} có gọi nhỡ lên tổng đài tư vấn {para.bot_phone} lúc {para.miss_call_time}. Không biết {para.person_name} cần hỗ trợ thông tin gì vậy ạ?" 
+            ],
+            "next_node": 1
+        },
+        {
+            "node_id": 1,
+            "type": "user",
+            "description": "Khách hàng trả lời thông tin cần hỗ trợ có 4 TH: từ chối, đang bận, người thân gọi, cung cấp câu hỏi",
+            "case": {
+                "user_rejected": {
+                    "next_node": 2
+                },
+                "user_busy": {
+                    "next_node": 3
+                },
+                "not_me_call": {
+                    "next_node": 4
+                },
+                "user_question":{
+                    "next_node": 5
+                },
+                "error": [
+                    "Xin lỗi {para.person_name}, em chưa rõ thông tin a cần hỗ trợ. {para.person_name} có thể nhắc lại giúp em được không ạ?"
+                ]
+            },
+            "message": [],
+            "next_node": -1
+        },
+        {
+            "node_id": 2,
+            "description": "Khi khách từ chối => kết thúc cuộc gọi",
+            "type": "bot",
+            "case": {},
+            "message": [
+                "Dạ, nếu {para.person_name} không cần tư vấn thì em xin phép. Lúc nào có nhu cầu cần được tư vấn {para.person_name} vui lòng gọi lại tổng đài {para.bot_phone} vào giờ hành chính từ 8 - 17h các ngày trong tuần ạ. Chúc {para.person_name} 1 ngày tốt lành!" 
+            ],
+            "next_node": -1
+        },
+        {
+            "node_id": 3,
+            "description": "Khi khách đang bận",
+            "type": "bot",
+            "case": {},
+            "message": [
+                "Vậy {para.person_name} rảnh khi nào em sẽ gọi lại sau ạ?" 
+            ],
+            "next_node": 6
+        },
+        {
+            "node_id": 4,
+            "description": "Khi khách bảo là người nhà gọi,  => kết thúc cuộc gọi",
+            "type": "bot",
+            "case": {},
+            "message": [
+                "Dạ, vậy quý khách có thể nhắn với {para.person_name} vui lòng gọi lại tổng đài {para.bot_phone} vào giờ hành chính từ 8 - 17h các ngày trong tuần ạ. Chúc quý khách 1 ngày tốt lành!" 
+            ],
+            "next_node": -1
+        },
+        {
+            "node_id": 5,
+            "description": "Khi khách có câu hỏi",
+            "type": "bot",
+            "case": {},
+            "message": [
+                "Dạ, em đã nhận được thông tin. Em sẽ chuyển chuyên gia gọi điện tư vấn trực tiếp. Không biết có thể gọi lại cho {para.person_name} vào lúc  nào thì thuận tiện ạ?" 
+            ],
+            "next_node": 6
+        },
+        {
+            "node_id": 6,
+            "description": "Khách trả lời thời gian sẽ rảnh",
+            "type": "user",
+            "case": {
+                "user_schedule": {
+                    "next_node": 7
+                },
+                "error": [
+                    "Xin lỗi {para.person_name}, quý khách có thể nhắc lại thời gian rảnh để bên em gọi lại ạ?",
+                    "Xin lỗi em chưa nghe rõ thời gian cụ thể ạ?",
+                    "{para.person_name} có thể nhắc lại thời gian giúp em được không ạ?"
+                ]
+            },
+            "message": [],
+            "next_node": -1
+        },
+        {
+            "node_id": 7,
+            "description": "Bot xác nhận thời gian gọi lại và kết thúc cuộc gọi",
+            "type": "bot",
+            "case": {},
+            "message": [
+                "Vậy {para.schedule_time} em sẽ gọi lại quý khách nhớ chú ý nghe điện thoại nhé. Chúc quý khách 1 ngày tốt lành!"
+            ],
+            "next_node": -1
+        }
+    ]
+}

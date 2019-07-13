@@ -1,0 +1,156 @@
+{
+  "paras": {
+    "{para.bot_name}": "pizza bot",
+    "{para.company_name}": "Chuỗi cửa hàng pizza Voice Bot",
+    "{para.list_pizza_name}": "pizza xúc xích ý, pizza phô mai, pizza thịt nguội và nấm, pizza gà nướng dứa, pizza rau củ, pizza hawaiian, pizza aloha, pizza ba loại thịt thập cẩm và rau củ, pizza thịt xông khói, pizza gà nướng 3 vị, pizza thịt nguội kiểu canada, pizza năm loại thịt đặc biệt và rau củ, pizza năm loại thịt đặc biệt, pizza lẩu thái tom yum kung, pizza hải sản pesto xanh, pizza hải sản cao cấp, pizza hải sản cocktail, pizza hải sản nhiệt đới, pizza tôm cocktail, pizza năm loại thịt đặc biệt và rau củ nhân nhồi, pizza hawaii nhân nhồi, pizza gà nướng 3 vị nhân nhồi"
+  },
+  "requires": {
+    "orders": [
+      "{para.pizza_name}",
+      "{para.pizza_amount}",
+      "{para.pizza_size}",
+      "{para.pizza_type}",
+      "{para.pizza_address}"
+    ],
+    "{para.pizza_name}": {
+      "node_id": 1,
+      "match_regex": [
+        ".*((?:pizza )?xúc xích ý|(?:pizza )?phô mai|(?:pizza )?thịt nguội và nấm|(?:pizza )?gà nướng dứa|(?:pizza )?rau củ|(?:pizza )?hawaiian|(?:pizza )?aloha|(?:pizza )?ba loại thịt thập cẩm và rau củ|(?:pizza )?thịt xông khói|(?:pizza )?gà nướng 3 vị|(?:pizza )?thịt nguội kiểu canada|(?:pizza )?năm loại thịt đặc biệt và rau củ|(?:pizza )?năm loại thịt đặc biệt|(?:pizza )?lẩu thái tom yum kung|(?:pizza )?hải sản pesto xanh|(?:pizza )?hải sản cao cấp|(?:pizza )?hải sản cocktail|(?:pizza )?hải sản nhiệt đới|(?:pizza )?tôm cocktail|(?:pizza )?năm loại thịt đặc biệt và rau củ nhân nhồi|(?:pizza )?hawaii nhân nhồi|(?:pizza )?gà nướng 3 vị nhân nhồi|(?:pizza )nấm).*"
+      ]
+    },
+    "{para.pizza_amount}": {
+      "node_id": 2,
+      "match_regex": [
+        "(\\d+) (?:chiếc|cái|hộp|pizza)"
+      ]
+    },
+    "{para.pizza_size}": {
+      "node_id": 3,
+      "match_regex": [
+        ".*(lớn|vừa|nhỏ).*"
+      ]
+    },
+    "{para.pizza_type}": {
+      "node_id": 4,
+      "match_regex": [
+        ".*(dày|mỏng).*"
+      ]
+    },
+    "{para.pizza_address}": {
+      "node_id": 5,
+      "match_regex": [
+        ".*29D Phạm Văn Bạch.*"
+      ]
+    }
+  },
+  "regex_para": "{para\\.[^}]+}",
+  "start_node_id": 0,
+  "confirm_node_id": 6,
+  "end_node_id": 7,
+  "stories": [
+    {
+      "node_id": 0,
+      "node_name": "start",
+      "description": "Lời mở đầu của bot",
+      "type": "bot",
+      "match_regex": [],
+      "message": [
+        "Kính chào quý khách, {para.bot_name} của {para.company_name} có thể giúp gì quý khách ạ"
+      ],
+      "start_over_message": [
+        "Rất xin lỗi quý khách vì sai sót, quý khách vui lòng cho em xin lại thông tin đặt pizza của mình ạ."
+      ],
+      "error_message": []
+    },
+    {
+      "node_id": 1,
+      "node_name": "ask_pizza_name",
+      "description": "Hỏi tên pizza khách hàng muốn đặt",
+      "type": "bot",
+      "message": [
+        "Quý khách muốn đặt pizza nào ạ"
+      ],
+      "error_message": [
+        "Xin lỗi quý khách, em chưa nghe rõ tên pizza quý khách muốn đặt",
+        "Xin lỗi quý khách, Bên em có các loại pizza sau: {para.list_pizza_name}, quý khách muốn đặt pizza nào ạ?"
+      ]
+    },
+    {
+      "node_id": 2,
+      "node_name": "ask_pizza_amount",
+      "description": "Hỏi số lượng pizza khách hàng muốn đặt",
+      "type": "bot",
+      "message": [
+        "Quý khách muốn đặt bao nhiêu chiếc"
+      ],
+      "error_message": [
+        "Xin lỗi quý khách, em chưa rõ số lượng pizza quý khách muốn đặt ạ"
+      ]
+    },
+    {
+      "node_id": 3,
+      "node_name": "ask_pizza_size",
+      "description": "Hỏi kích thước pizza khách hàng muốn đặt",
+      "type": "bot",
+      "message": [
+        "Quý khách muốn đặt size lớn, nhỏ hay vừa ạ"
+      ],
+      "error_message": [
+        "Xin lỗi quý khách, em chưa rõ size pizza quý khách muốn đặt ạ"
+      ]
+    },
+    {
+      "node_id": 4,
+      "node_name": "ask_pizza_type",
+      "description": "Hỏi đế dày hay mỏng",
+      "type": "bot",
+      "message": [
+        "Quý khách thích đế dày hay mỏng ạ"
+      ],
+      "error_message": [
+        "Xin lỗi quý khách, em chưa rõ quý khách muốn đặt pizza đế dày hay mỏng ạ"
+      ]
+    },
+    {
+      "node_id": 5,
+      "node_name": "ask_pizza_address",
+      "description": "Hỏi địa chỉ giao hàng",
+      "type": "bot",
+      "message": [
+        "Quý khách vui lòng cho em xin địa chỉ giao hàng ạ"
+      ],
+      "error_message": [
+        "Xin lỗi quý khách, em chưa thể xác định được địa chỉ giao hàng"
+      ]
+    },
+    {
+      "node_id": 6,
+      "node_name": "confirm_order",
+      "description": "Confirm đặt hàng",
+      "type": "bot",
+      "match_yes": [
+        ".*(ừ|đúng|ok).*"
+      ],
+      "match_no": [
+        ".*(không|sai).*"
+      ],
+      "message": [
+        "Em xin xác nhận thông tin đơn hàng: {para.pizza_amount} {para.pizza_name} size {para.pizza_size} loại đế {para.pizza_type} đến địa chỉ {para.pizza_address} đúng không ạ?"
+      ],
+      "error_message": [
+        "Xin lỗi quý khách, quý khách vui lòng xác nhận lại thông tin đơn hàng giúp em ạ"
+      ]
+    },
+    {
+      "node_id": 7,
+      "node_name": "end",
+      "description": "tạm biệt",
+      "type": "bot",
+      "match_regex": [],
+      "message": [
+        "Đơn hàng của quý khách đã được xác nhận, bên em sẽ cho người đi giao hàng cho quý khách ngay ạ.Cảm ơn quý khách đã tin tưởng sử dụng pizza của {para.company_name}. Chúc quý khách ngon miệng!"
+      ],
+      "error_message": []
+    }
+  ]
+}
