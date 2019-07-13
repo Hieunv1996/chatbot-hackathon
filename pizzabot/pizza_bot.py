@@ -3,7 +3,7 @@ import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-from pizza_bot.utils import *
+from pizzabot.utils import *
 
 
 class PizzaBot:

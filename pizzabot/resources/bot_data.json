@@ -2,7 +2,7 @@
   "paras": {
     "{para.bot_name}": "pizza bot",
     "{para.company_name}": "Chuỗi cửa hàng pizza Voice Bot",
-    "{para.list_pizza_name}": "pizza xúc xích ý, pizza phô mai, pizza thịt nguội và nấm, pizza gà nướng dứa, pizza rau củ, pizza hawaiian, pizza aloha, pizza ba loại thịt thập cẩm và rau củ, pizza thịt xông khói, pizza gà nướng 3 vị, pizza thịt nguội kiểu canada, pizza năm loại thịt đặc biệt và rau củ, pizza năm loại thịt đặc biệt, pizza lẩu thái tom yum kung, pizza hải sản pesto xanh, pizza hải sản cao cấp, pizza hải sản cocktail, pizza hải sản nhiệt đới, pizza tôm cocktail, pizza năm loại thịt đặc biệt và rau củ nhân nhồi, pizza hawaii nhân nhồi, pizza gà nướng 3 vị nhân nhồi"
+    "{para.list_pizza_name}": "xúc xích, phô mai, nấm, hải sản, gà nướng, bò, tôm, thập cẩm, thịt xông khói"
   },
   "requires": {
     "orders": [
@@ -15,12 +15,13 @@
     "{para.pizza_name}": {
       "node_id": 1,
       "match_regex": [
-        ".*((?:pizza )?xúc xích ý|(?:pizza )?phô mai|(?:pizza )?thịt nguội và nấm|(?:pizza )?gà nướng dứa|(?:pizza )?rau củ|(?:pizza )?hawaiian|(?:pizza )?aloha|(?:pizza )?ba loại thịt thập cẩm và rau củ|(?:pizza )?thịt xông khói|(?:pizza )?gà nướng 3 vị|(?:pizza )?thịt nguội kiểu canada|(?:pizza )?năm loại thịt đặc biệt và rau củ|(?:pizza )?năm loại thịt đặc biệt|(?:pizza )?lẩu thái tom yum kung|(?:pizza )?hải sản pesto xanh|(?:pizza )?hải sản cao cấp|(?:pizza )?hải sản cocktail|(?:pizza )?hải sản nhiệt đới|(?:pizza )?tôm cocktail|(?:pizza )?năm loại thịt đặc biệt và rau củ nhân nhồi|(?:pizza )?hawaii nhân nhồi|(?:pizza )?gà nướng 3 vị nhân nhồi|(?:pizza )nấm).*"
+        ".*(?:pizza)?(xúc xích|phô mai|nấm|hải sản|gà nướng|bò|tôm|thập cẩm|thịt xông khói).*"
       ]
     },
     "{para.pizza_amount}": {
       "node_id": 2,
       "match_regex": [
+        "(một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười) (?:chiếc|cái|hộp|pizza)",
         "(\\d+) (?:chiếc|cái|hộp|pizza)"
       ]
     },
@@ -39,7 +40,9 @@
     "{para.pizza_address}": {
       "node_id": 5,
       "match_regex": [
-        ".*29D Phạm Văn Bạch.*"
+        ".*(?:địa chỉ) (.+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức)).*",
+        ".*(?:đến|tới) (.+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức)).*",
+        ".*((?:số|tòa).+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức)).*"
       ]
     }
   },
@@ -129,10 +132,10 @@
       "description": "Confirm đặt hàng",
       "type": "bot",
       "match_yes": [
-        ".*(ừ|đúng|ok).*"
+        ".*(ừ|đúng|ok|uh|chính xác).*"
       ],
       "match_no": [
-        ".*(không|sai).*"
+        ".*(không|sai|sửa|đổi).*"
       ],
       "message": [
         "Em xin xác nhận thông tin đơn hàng: {para.pizza_amount} {para.pizza_name} size {para.pizza_size} loại đế {para.pizza_type} đến địa chỉ {para.pizza_address} đúng không ạ?"
