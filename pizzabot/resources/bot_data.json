@@ -75,9 +75,9 @@
       "type": "bot",
       "match_regex": [],
       "message": [
-        "Kính chào quý khách, {para.bot_name} của {para.company_name} có thể giúp gì quý khách",
-        "Kính chào quý khách, em là {para.bot_name} của {para.company_name} sẵn sàng phục vụ quý khách",
-        "Dạ, chào quý khách, {para.bot_name} của {para.company_name} có thể phục vụ gì cho quý khách"
+        "Kính chào quý khách, {para.bot_name} của {para.company_name} có thể giúp gì anh chị ạ",
+        "Kính chào quý khách, em là {para.bot_name} của {para.company_name} sẵn sàng phục vụ anh chị",
+        "Dạ, chào quý khách, {para.bot_name} của {para.company_name} có thể phục vụ gì cho quý khách ạ"
       ],
       "start_over_message": [
         "Rất xin lỗi quý khách vì sai sót, quý khách vui lòng cho {para.bot_name} xin lại thông tin đặt pizza của mình ạ."
@@ -195,9 +195,9 @@
       ],
       "error_message": [
         "Rất xin lỗi vì không hiểu yêu cầu của quý khách, {para.bot_name} sẽ chuyển máy qua điện thoại viên để hỗ trợ quý khách ạ",
-        "{para.bot_name} lấy làm tiếc vì không hiểu yêu cầu của quý khách, ngay sau đây nhân viên tư vấn sẽ hỗ trợ quý khách",
+        "{para.bot_name} lấy làm tiếc vì không hiểu yêu cầu của quý khách, ngay sau đây nhân viên tư vấn sẽ hỗ trợ anh chị",
         "Rất tiếc {para.bot_name} không hiểu yêu cầu của quý khách, sau đây {para.bot_name} sẽ chuyển máy cho điện thoại viên",
-        "Để việc phục vụ quý khách tốt hơn, sau đây nhân viên của {para.company_name} sẽ hỗ trợ quý khách"
+        "Để việc phục vụ quý khách tốt hơn, sau đây nhân viên của {para.company_name} sẽ hỗ trợ anh chị ạ"
       ]
     }
   ]
