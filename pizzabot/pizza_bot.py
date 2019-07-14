@@ -53,10 +53,12 @@ class PizzaBot:
         # Check confirm is NO
         for regex in self.stories[self.confirm_node_id]["match_no"]:
             if re.match(regex, user_confirm_mess, re.IGNORECASE):
-                self.start_over()
-                return self.fill_message_para(get_random_item(self.stories[self.start_node_id]["start_over_message"]))
+                # self.start_over()
+                # return self.fill_message_para(get_random_item(self.stories[self.start_node_id]["start_over_message"]))
+                self.ended = True
+                return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["error_message"]))
 
-        return self.fill_message_para(get_random_item(self.stories[self.confirm_node_id]["error_message"]))
+        return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["error_message"]))
 
     def start_over(self):
         self.order_data = {}
@@ -64,6 +66,12 @@ class PizzaBot:
         self.confirmed_count = 0
         self.welcomed = True
         self.ended = False
+
+    def mark_as_asked_again(self, node_id):
+        self.stories[node_id]["asked"] = True
+
+    def has_asked_again(self, node_id):
+        return "asked" in self.stories[node_id]
 
     def interactive(self, user_message=None):
         if self.ended:
@@ -85,7 +93,13 @@ class PizzaBot:
                             self.prev_require = key
                             return self.fill_message_para(mess)
                         else:
-                            mess = get_random_item(self.stories[self.requires[key]["node_id"]]["error_message"])
+                            if self.has_asked_again(self.requires[key]["node_id"]):
+                                self.ended = True
+                                return self.fill_message_para(
+                                    get_random_item(self.stories[self.end_node_id]["error_message"]))
+                            else:
+                                self.mark_as_asked_again(self.requires[key]["node_id"])
+                                mess = get_random_item(self.stories[self.requires[key]["node_id"]]["error_message"])
                             return self.fill_message_para(mess)
             else:
                 return self.confirm_action()
@@ -97,6 +111,7 @@ class PizzaBot:
                 message = re.sub(para, self.paras.get(para), message)
             else:
                 message = re.sub(para, self.order_data.get(para), message)
+        message = re.sub('đế giày', 'đế dày', message)
         return message
 
 
