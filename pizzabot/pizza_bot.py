@@ -80,7 +80,12 @@ class PizzaBot:
                 return self.fill_message_para(
                     get_random_item(self.stories[self.end_node_id]["error_message"]) + END_SIGNAL)
 
-        return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["error_message"]))
+        if self.confirmed_count < 2:
+            self.confirmed_count += 1
+            return self.fill_message_para(get_random_item(self.stories[self.confirm_node_id]["error_message"]))
+        else:
+            self.ended = True
+            return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["error_message"]) + END_SIGNAL)
 
     def start_over(self):
         self.order_data = {}
@@ -138,8 +143,10 @@ class PizzaBot:
 def interactive():
     bot = PizzaBot()
     bot_mess = bot.interactive()
-    while bot_mess != "_END_.":
-        print(bot_mess)
+    while True:
+        print(bot_mess.replace(END_SIGNAL, ""))
+        if bot_mess.endswith(END_SIGNAL):
+            break
         message = input('> ')
         bot_mess = bot.interactive(user_message=message)
 

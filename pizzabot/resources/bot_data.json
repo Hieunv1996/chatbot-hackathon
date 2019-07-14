@@ -35,12 +35,12 @@
     "{para.pizza_size}": {
       "node_id": 3,
       "match_regex": [
-        ".*([1-9] (?:lớn|nhỏ|vừa) [1-9] (?:lớn|nhỏ|vừa)  [1-9] (?:lớn|nhỏ|vừa)).*",
-        ".*([1-9] (?:lớn|nhỏ|vừa) [1-9] (?:lớn|nhỏ|vừa)  [1-9] (?:lớn|nhỏ|vừa)).*",
-        ".*((?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:lớn|nhỏ|vừa) (?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:lớn|nhỏ|vừa) (?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín) (?:lớn|nhỏ|vừa)).*",
-        ".*([1-9] (?:size|cỡ) (?:lớn|nhỏ|vừa) [1-9] (?:size|cỡ) (?:lớn|nhỏ|vừa)).*",
-        ".*((?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:size|cỡ) (?:lớn|nhỏ|vừa) (?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:size|cỡ) (?:lớn|nhỏ|vừa)).*",
-        ".*(lớn|vừa|nhỏ).*"
+        ".*([1-9] (?:lớn|nhỏ|vừa) [1-9] (?:lớn|nhỏ|vừa|to)  [1-9] (?:lớn|nhỏ|vừa|to)).*",
+        ".*([1-9] (?:lớn|nhỏ|vừa|to) [1-9] (?:lớn|nhỏ|vừa|to)  [1-9] (?:lớn|nhỏ|vừa|to)).*",
+        ".*((?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:lớn|nhỏ|vừa|to) (?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:lớn|nhỏ|vừa|to) (?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín) (?:lớn|nhỏ|vừa|to)).*",
+        ".*([1-9] (?:size|cỡ) (?:lớn|nhỏ|vừa|to) [1-9] (?:size|cỡ) (?:lớn|nhỏ|vừa|to)).*",
+        ".*((?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:size|cỡ) (?:lớn|nhỏ|vừa|to) (?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|\\d) (?:size|cỡ) (?:lớn|nhỏ|vừa|to)).*",
+        ".*(lớn|vừa|nhỏ|to).*"
       ]
     },
     "{para.pizza_type}": {
@@ -181,7 +181,7 @@
         "Cho em hỏi thông tin đơn hàng: {para.pizza_amount} {para.pizza_name} cỡ {para.pizza_size} đế {para.pizza_type} chuyển tới {para.pizza_address} đúng không ạ?"
       ],
       "error_message": [
-        "Xin lỗi quý khách, quý khách vui lòng xác nhận lại thông tin đơn hàng giúp {para.bot_name} ạ"
+        "Quý khách vui lòng xác nhận lại thông tin đơn hàng giúp {para.bot_name}, {para.pizza_amount} {para.pizza_name} cỡ {para.pizza_size} đế {para.pizza_type} đến địa chỉ {para.pizza_address} đúng không ạ"
       ]
     },
     {
