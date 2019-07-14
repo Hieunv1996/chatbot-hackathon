@@ -35,7 +35,26 @@ class PizzaBot:
                 founds = re.findall(regex, user_mess, re.IGNORECASE)
                 if len(founds) > 0:
                     if key not in self.order_data or overwrite:
+
+                        if key == '{para.pizza_name}':
+                            founds[0] = re.sub('\\bmột\\b', '1', founds[0])
+                            founds[0] = re.sub('\\bhai\\b', '2', founds[0])
+                            founds[0] = re.sub('\\bba\\b', '3', founds[0])
+                            founds[0] = re.sub('\\bbốn\\b', '4', founds[0])
+                            founds[0] = re.sub('\\bnăm\\b', '5', founds[0])
+                            founds[0] = re.sub('\\bsáu\\b', '6', founds[0])
+                            founds[0] = re.sub('\\bbảy\\b', '7', founds[0])
+                            founds[0] = re.sub('\\btám\\b', '8', founds[0])
+                            founds[0] = re.sub('\\bchín\\b', '9', founds[0])
+                            if re.match("(\\d)", founds[0]):
+                                founds[0] = re.sub("(\\d) (pizza)?", r"\1 pizza ",
+                                                   founds[0])
+                            elif "pizza" not in founds[0]:
+                                founds[0] = "pizza " + founds[0]
                         self.order_data[key] = founds[0]
+                        if re.match('({para.pizza_name}|{para.pizza_size}|{para.pizza_type})', key) and re.match(
+                                "(\\d)", founds[0]):
+                            self.order_data["{para.pizza_amount}"] = ""
                     break
 
     def confirm_action(self, user_confirm_mess=None):
@@ -112,7 +131,7 @@ class PizzaBot:
             else:
                 message = re.sub(para, self.order_data.get(para), message)
         message = re.sub('đế giày', 'đế dày', message)
-        return message
+        return re.sub("\\s+", " ", message).strip()
 
 
 def interactive():
