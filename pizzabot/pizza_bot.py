@@ -5,6 +5,8 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 from pizzabot.utils import *
 
+END_SIGNAL = "_END_."
+
 
 class PizzaBot:
     def __init__(self, bot_data=os.path.join(dir_path, './resources/bot_data.json')):
@@ -67,7 +69,7 @@ class PizzaBot:
         for regex in self.stories[self.confirm_node_id]["match_yes"]:
             if re.match(regex, user_confirm_mess, re.IGNORECASE):
                 self.ended = True
-                return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["message"]))
+                return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["message"]) + END_SIGNAL)
 
         # Check confirm is NO
         for regex in self.stories[self.confirm_node_id]["match_no"]:
@@ -75,7 +77,8 @@ class PizzaBot:
                 # self.start_over()
                 # return self.fill_message_para(get_random_item(self.stories[self.start_node_id]["start_over_message"]))
                 self.ended = True
-                return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["error_message"]))
+                return self.fill_message_para(
+                    get_random_item(self.stories[self.end_node_id]["error_message"]) + END_SIGNAL)
 
         return self.fill_message_para(get_random_item(self.stories[self.end_node_id]["error_message"]))
 
@@ -93,8 +96,6 @@ class PizzaBot:
         return "asked" in self.stories[node_id]
 
     def interactive(self, user_message=None):
-        if self.ended:
-            return "_END_."
         if not self.welcomed:
             self.welcomed = True
             return self.fill_message_para(get_random_item(self.stories[self.start_node_id]["message"]))
@@ -115,7 +116,7 @@ class PizzaBot:
                             if self.has_asked_again(self.requires[key]["node_id"]):
                                 self.ended = True
                                 return self.fill_message_para(
-                                    get_random_item(self.stories[self.end_node_id]["error_message"]))
+                                    get_random_item(self.stories[self.end_node_id]["error_message"]) + END_SIGNAL)
                             else:
                                 self.mark_as_asked_again(self.requires[key]["node_id"])
                                 mess = get_random_item(self.stories[self.requires[key]["node_id"]]["error_message"])

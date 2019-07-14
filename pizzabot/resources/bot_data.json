@@ -58,8 +58,8 @@
       "match_regex": [
         ".*(?:địa chỉ) (.+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức|hà nội)).*",
         ".*(?:đến|tới) (.+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức|hà nội)).*",
-        ".*((?:số|tòa).+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức|hà nội)).*",
-        ".*((?:\\b\\d{1,3}).+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức|hà nội)).*",
+        ".*((?:số nhà|số|tòa|đường|thôn|công ty).+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức|hà nội)).*",
+        ".*((?:\\b\\d{1,3}).+(?:ba đình|hoàn kiếm|tây hồ|long biên|cầu giấy|đống đa|hai bà trưng|hoàng mai|thanh xuân|sóc sơn|đông anh|gia lâm|nam từ liêm|thanh trì|bắc từ liêm|mê linh|hà đông|sơn tây|ba vì|phúc thọ|đan phượng|hoài đức|quốc oai|thạch thất|chương mỹ|thanh oai|thường tín|phú xuyên|ứng hòa|mỹ đức|hà nội)).*"
       ]
     }
   },
