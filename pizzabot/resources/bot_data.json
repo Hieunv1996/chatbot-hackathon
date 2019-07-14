@@ -176,7 +176,7 @@
       ],
       "message": [
         "{para.bot_name} xin xác nhận thông tin đơn hàng: {para.pizza_amount} {para.pizza_name} cỡ {para.pizza_size} đế {para.pizza_type} đến địa chỉ {para.pizza_address} đúng không ạ",
-        "Quý khách xác nhận giúp em: {para.pizza_amount} pizza {para.pizza_name} cỡ {para.pizza_size} với đế {para.pizza_type} gửi tới {para.pizza_address} đúng không ạ",
+        "Quý khách xác nhận giúp em: {para.pizza_amount} {para.pizza_name} cỡ {para.pizza_size} với đế {para.pizza_type} gửi tới {para.pizza_address} đúng không ạ",
         "Quý khách xác nhận giúp em: {para.pizza_amount} {para.pizza_name} cỡ {para.pizza_size} đế {para.pizza_type} giao hàng đến {para.pizza_address} đúng chưa ạ",
         "Cho em hỏi thông tin đơn hàng: {para.pizza_amount} {para.pizza_name} cỡ {para.pizza_size} đế {para.pizza_type} chuyển tới {para.pizza_address} đúng không ạ"
       ],
